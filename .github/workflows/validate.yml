@@ -10,7 +10,7 @@ permissions: {}
 
 jobs:
   validate:
-    if: github.event_name != 'pull_request' && ! github.event.pull_request.head.repo.fork
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork
     name: Lint & Test
     permissions:
       checks: write
